@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ![Picture](http://i.imgur.com/cWBXx5A.png)
 ==============
 
@@ -17,7 +17,6 @@ Awesome, no?
 * "Guilherme Vieira Rizzo" <guivr2011@gmail.com>
 * "Leonardo Felipe Nerone" <leonardofelipenerone@gmail.com>
 * "Thor Garcia" <thor.fc21@gmail.com>
-<<<<<<< HEAD
 * "João Escudero" <>
 =======
 * João Escudero
