@@ -17,11 +17,8 @@ Awesome, no?
 * "Guilherme Vieira Rizzo" <guivr2011@gmail.com>
 * "Leonardo Felipe Nerone" <leonardofelipenerone@gmail.com>
 * "Thor Garcia" <thor.fc21@gmail.com>
-* "João Escudero" <>
-=======
-* João Escudero
->>>>>>> e44ca35f013a42fba23ec02af9459aec3ea69683
-
+* "João Escudero
+* 
 =============
 Here, our team (LeoNero, Thor and guivr) will post all the project (open-source :-).
 Bye, 
