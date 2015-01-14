@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ![Picture](http://i.imgur.com/cWBXx5A.png)
 ==============
 
@@ -26,3 +27,6 @@ Awesome, no?
 Here, our team (LeoNero, Thor and guivr) will post all the project (open-source :-).
 Bye, 
 Sharing Dreams.
+=======
+# sharingdreams
+>>>>>>> e7a092e3b53b74eccf0a4b24b34817e20aeba302
