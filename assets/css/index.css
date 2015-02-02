@@ -71,6 +71,14 @@
                 color:#484848;
                 text-decoration:underline;
             }
+            a#aboutbtn {
+                color:#fff;
+                text-decoration:none;
+            }
+            a#aboutbtn:hover {
+                color:#fff;
+                text-decoration:underline;
+            }
             .donate_button a{
                 color:white;
                 text-decoration:none;
@@ -154,6 +162,9 @@
                 margin-bottom:-5px;
                 margin-left:50px;
             }
+            input:focus, input:focus, input:hover{
+                outline:0;
+            }
         
 
             input#search{
@@ -168,7 +179,14 @@
                 outline:0;
             }
             .search-button-after{
-                background: url('http://i.imgur.com/6W8m7Sm.png') right center no-repeat;
+                height: 37px;
+                width: 30px;
+                background-color: #eaeaea !important;
+                border: 1px solid #d4d4d4;
+                background: url('http://i.imgur.com/6W8m7Sm.png') center no-repeat;
+                background-position: 4px;
+                position: absolute;
+                border-left: none;
             }
             .page-button{
                 font-family:'Open Sans', sans-serif;
@@ -188,6 +206,10 @@
                 border-color:#969696;
             }
             a#num-page{
+                text-decoration: none;
+                color: #555555;
+            }
+            a#num-page-final, a#num-page-start{
                 text-decoration: none;
                 color: #555555;
             }
@@ -373,6 +395,8 @@
 
             .about_team{
                 text-align:center;
+                margin-left:166px;
+                margin-top:40px;
             }
 
             .about_team_member{
@@ -480,15 +504,27 @@
                 color:#484848;
                 text-decoration: underline;
             }
+            *:focus{
+                outline:0;
+            }
+            *:active{
+                outline:0;
+            }
             .img_conta{
                 margin-top: 30px; 
                 -webkit-border-radius:500px; 
                 -moz-border-radius: 500px; 
                 border-radius: 500px; 
-                margin-left:200px;
+                margin-left:557px;
             }
             .city{
                 text-align: center;
+            }
+            #menu-margin{
+                margin-right:20px !important;
+            }
+            #logo-margin{
+                margin-left:20px !important;
             }
 
 
@@ -627,7 +663,7 @@
                 .logo_img{
                     width:140px;
                     margin-top:13px;
-                    margin-left:0px;
+                    margin-left:-8px;
                 }
                 .menu_list{
                     margin-left:-30px;
@@ -649,7 +685,7 @@
                 }
                 input#search{
                     width:270px;
-                    margin-left:0px;
+                    margin-left:-30px;
                 }
                 .gallery_ol, .gallery{
                     width:280px;
@@ -856,6 +892,17 @@
                     text-align:center;
                     left:0;
                     position:absolute;
+                }
+                #email_leo{
+                    margin-left:-15px;
+                }
+                #menu-margin{
+                    margin-right:5px !important;
+                }
+                .search_art_conta{
+                    width:250px !important;
+                    margin-left:60px !important;
+                    float:left !important;
                 }
             }
 
