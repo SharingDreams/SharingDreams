@@ -3,7 +3,7 @@
     <head>
         <meta charset='UTF-8'>
         <title>Sharing Dreams</title>
-        <link rel="stylesheet" href="assets/css/index.css">
+        <link rel="stylesheet" href="http://sharingdreams.hol.es/assets/css/index.css">
         <link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
     </head>
@@ -34,7 +34,7 @@
 
                     echo "<div class='top'>
                         <div class='logo'>
-                            <a href='/'><img src='assets/img/logo.png' class='logo_img'></a>
+                            <a href='/'><img src='http://sharingdreams.hol.es/assets/img/logo.png' class='logo_img'></a>
                         </div>
                         <ul class='menu_list'>
                             <li><a href='/about.php' id='menu'>About</a></li>
@@ -53,7 +53,8 @@
             <div style="height:20px;"></div>
             <form method="GET" action="/">
                 <center>
-                    <input type="text" name="q" id="search" class="search-button-after" placeholder="Find someone to help">
+                    <input type="text" name="q" id="search" placeholder="Find someone to help">
+                    <input type="button" class="search-button-after">
                 </center>
             </form>
         <?php endif; ?>
