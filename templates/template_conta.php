@@ -115,7 +115,7 @@
 					<br>
 		            <form method="GET" action="/">
 		                <center>
-		                    <input type="text" name="q" id="search" placeholder="Find my works">
+		                    <input type="text" name="q" id="search" class="search_art_conta" placeholder="Find my works">
 		                    <input type="button" class="search-button-after">
 		                </center>
 		            </form>
