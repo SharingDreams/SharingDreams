@@ -36,7 +36,6 @@
                             <a href='/'><img src='assets/img/logo.png' class='logo_img'></a>
                         </div>
                         <ul class='menu_list'>
-                            <li>About</li>
                             <li><a href='/join' id='menu'>Join</a></li>
                             <li><a href='/login' id='menu'>Login</a></li>
                         </ul>
@@ -47,7 +46,6 @@
                             <a href='/'><img src='assets/img/logo.png' class='logo_img'></a>
                         </div>
                         <ul class='menu_list'>
-                            <li>About</li>
                             <li><a href='/join' id='menu'>Join</a></li>
                             <li><a href='/login' id='menu'>Login</a></li>
                         </ul>
@@ -70,7 +68,7 @@
 					<img src="assets/img/nerone.png" class="about_team_member_image leo">
 					<p class="about_team_member_name">Leonardo Felipe Nerone</p>
 					<p class="about_team_member_do">Programmer</p>
-					<p class="about_team_member_email">leonardofelipenerone@gmail.com</p>
+					<p class="about_team_member_email" id="email_leo">leonardofelipenerone@gmail.com</p>
 				</li>
 				<li class="about_team_member">
 					<img src="assets/img/garcia.png" class="about_team_member_image thor">
