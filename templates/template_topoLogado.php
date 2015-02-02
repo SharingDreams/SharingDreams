@@ -24,11 +24,11 @@ include "./libs/helper.php";
 		</style>
 		
 		<div class="top tp_marginlg">
-            <div class="logo">
+            <div class="logo" id='logo-margin'>
                 <a href='/'><img src="./assets/img/logo.png" class="logo_img"></a>
                 <a href="/submit" class="gotoglr">Submit your art! :)</a>
             </div>
-            <ul class="menu_list">
+            <ul class="menu_list" id='menu-margin'>
                 <li><a href="/submit" id="menu" class="gotoglr">Submit</a></li>
                 <li><a href="/gallery" id="menu">Gallery</a></li>
                 <li id="menu"><a href='/editProfile' id='menu'>Settings</a></li>
