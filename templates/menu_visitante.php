@@ -28,10 +28,10 @@ error_reporting(E_ALL);
 </style>
 
 <div class="top">
-    <div class="logo">
+    <div class="logo" id='logo-margin'>
         <a href='/'><img src="assets/img/logo.png" class="logo_img"></a>
     </div>
-    <ul class="menu_list">
+    <ul class="menu_list" id='menu-margin'>
         <li id="about_li"><a href="/about.php" id="menu">About</a></li>
         <li><a href="/join" id="menu">Join</a></li>
         <li><a href="/login" id="menu">Login</a></li>
@@ -43,7 +43,7 @@ error_reporting(E_ALL);
         <div class="txtg_index">Help kids around the world.
             <br>
 			<center>
-				<a href="#" style="font-size:18px;">
+				<a href="/about" id="aboutbtn" style="font-size:18px;">
 					<div class="donate_button">
 						About
 					</div>
