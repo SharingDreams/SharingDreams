@@ -1,4 +1,4 @@
-﻿        <div id="fb-root"></div>
+        <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -19,10 +19,12 @@
                                 $id_artista = $artista['id'];
                                 $nome_artista = $artista['nome'];
                                 $foto_artista = buscar_foto($mysqli, $arte['cadastro_id']);
+                                $arte_nome_id = str_replace(" ", "-", $arte['nome_arte']);
+                                $arte_nome_id = str_replace(".", "-", $arte_nome_id);?>
                                 ?>
                     <li align="center" class="art_li">
                         <div class="view view-fifth">
-                            <a href="/?art=<?php echo $arte['id']; ?>">
+                            <a href="/art/<?php echo $arte_nome_id; ?>/<?php echo $arte['id']; ?>">
                                 <?php if(file_exists("artes/thumbnails/".$arte['nome'])){?>
                                     <img src="artes/thumbnails/<?php echo $arte['nome']; ?>" class="art_img_src"/>
                                 <?php }else{ ?>
@@ -32,7 +34,7 @@
                             <div class="mask">
                                 <center>
                                     <br>Did you like it?
-                                    <br>	<a href="/?art=<?php echo $arte['id']; ?>" style="margin-top:15px;" class="donate">
+                                    <br>	<a href="/art/<?php echo $arte_nome_id; ?>/<?php echo $arte['id']; ?>" style="margin-top:15px;" class="donate">
     									See more
     								</a>
                                     <div style="height:5px;"></div>
@@ -63,7 +65,7 @@
                 <?php
 
                     if ($pagina_atual > 1) {
-                        echo "<div class='page-button'><a href='/?page=".($pagina_atual - 1)."'><<</a></div>";
+                        echo "<div class='page-button'><a id='num-page-start' href='/?page=".($pagina_atual - 1)."'><<</a></div>";
                     }
 
                     for($i = $inicio; $i <= $limite + 1; $i++) {
@@ -77,7 +79,7 @@
                     }
 
                     if ($pagina_atual < $numPaginas) {
-                        echo "<div class='page-button'><a href='/?page=".($pagina_atual + 1)."'>>></a></div>";
+                        echo "<div class='page-button'><a id='num-page-final' href='/?page=".($pagina_atual + 1)."'>>></a></div>";
                     }
                 ?>
             </center>
