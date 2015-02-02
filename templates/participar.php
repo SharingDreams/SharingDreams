@@ -31,7 +31,7 @@
         <center>
 			<div class="que_bom">How nice your interest to join us!</div>
 
-			<small class="forwhoRegister">You, which have 18 years old or less, help poor kids around the world and be recognized!</small>
+			<small class="forwhoRegister">You, which have 18 years old or less, help kids around the world and be recognized!</small>
 
 			<div style="height:30px;"></div>
 
