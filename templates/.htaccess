@@ -1,0 +1,24 @@
+# Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
+ 
+RewriteBase /
+ 
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^join/?$ cadastros.php [NC,L]
+RewriteRule ^login/?$ login.php [NC,L]
+RewriteRule ^about/?$ /about.php [NC,L]
+RewriteRule ^submit/?$ /submit.php [NC,L]
+RewriteRule ^profile/?$ conta_verificar.php [L]
+RewriteRule ^editProfile/?$ editar_verificar.php [NC,L]
+RewriteRule ^admin/?$ admin/admin.php [NC,L]
+RewriteRule ^editPass/?$ editar_senha_verificar.php [NC,L]
+RewriteRule ^([a-zA-Z]+)\/?$ /conta.php?user=$1 [NC,L]
+RewriteRule ^([0-9]+)\/?([0-9]+)/?$ /conta.php?id=$1&page=$2 [NC,L]
+RewriteRule ^art/([a-z0-9-]+)\/?([0-9]+)/?$ /?art=$1 [NC,L]
+RewriteRule ^forgot/?$ /forgot.php [NC,L]
+ 
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+ErrorDocument 404 /404.php

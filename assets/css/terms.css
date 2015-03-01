@@ -1,0 +1,30 @@
+body{
+	font-family:'Arial', sans-serif;
+	font-size:14px;
+	margin-left:15px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+div#terms li{
+	padding-left:20px;
+	display:block;
+	margin-top:5px;
+	margin-bottom: 5px;
+	padding-right:20px;
+	list-style-type: decimal;
+}
+
+div#terms ul li{
+	padding-left:0px;
+	margin-left:-20px;
+}
+
+div#terms ul li:before {
+    content: "• ";
+    color: black;
+}
+
+b{
+	margin-top:20px;
+}

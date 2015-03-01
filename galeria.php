@@ -3,6 +3,7 @@
 ini_set('display_errors',1);
 ini_set('display_startup_erros',1);
 error_reporting(E_ALL);
+session_start();
 
 $page = (isset($_GET['page']))? $_GET['page'] : 1;
 
@@ -13,7 +14,7 @@ $cmd = "SELECT * FROM artes WHERE acc = '1'";
 $artes_total = mysqli_query($mysqli, $cmd);
 $total_artes = mysqli_num_rows($artes_total);
 
-$registros = 20;
+$registros = 21;
 $numPaginas = ceil($total_artes/$registros);
 $inicio = ($registros*$page)-$registros;
 
@@ -32,4 +33,4 @@ $limite = $pagina_atual + $links_laterais;
 
 
 
-include "../templates/template_galeria.php";	
+include "./templates/template_galeria.php";	

@@ -9,6 +9,10 @@ include "banco.php";
 include "helper.php";
 include "Classes/Cadastros.php";
 
+if(verificar_idade_c($_SESSION['data_nascimento']) == false){
+        header("Location: http://sharingdreams.co/deslogar.php");
+}
+
 $cadastros = new Cadastros($mysqli);
 
 $tem_erros = false;
@@ -24,12 +28,19 @@ if (tem_post()) {
 
 
     if (isset($_POST['email']) && strlen($_POST['email']) > 0) {
-        if (validar_email($_POST['email'])) {
-            $cadastro['email'] = $_POST['email'];
-            $_SESSION['email'] =  $cadastro['email'];
-        } else {
+        $verificar = verificar_email($mysqli, $_POST['email']);
+
+        if($verificar >= 1 AND $_POST['email_u'] != $_POST['email']) {
             $tem_erros = true;
-            $erros_validacao['email'] = 'Invalid email!'; 
+            $erros_validacao['email'] = 'Email already in use!';  
+        } else {
+            if (validar_email($_POST['email'])) {
+                $cadastro['email'] = $_POST['email'];
+                $_SESSION['email'] =  $cadastro['email'];
+            } else {
+                $tem_erros = true;
+                $erros_validacao['email'] = 'Invalid email!'; 
+            }
         }
     } else {
         $tem_erros = true;
@@ -76,7 +87,9 @@ if (tem_post()) {
     if (! $tem_erros) {
         $cadastros->editar_cadastro($cadastro);
 
-        if($erro_foto == false) {
+        $_SESSION["pedit"] = "Your profile has been changed successfully!";
+
+        if($sem_erro_foto == false) {
             $verificar_foto = verificar_foto($mysqli, $_SESSION['id']);
 
             if($verificar_foto == 1) {
@@ -87,9 +100,9 @@ if (tem_post()) {
 
             $_SESSION['foto'] = buscar_foto($mysqli, $_SESSION['id']); 
 
-            header('Location: http://sharingdreams.hol.es/');
+            header('Location: http://sharingdreams.co/gallery');
         } else {
-            header('Location: http://sharingdreams.hol.es/');
+            header('Location: http://sharingdreams.co/gallery');
         }
 
         die();

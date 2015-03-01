@@ -7,12 +7,11 @@ ini_set('display_startup_erros',1);
 error_reporting(E_ALL);
 
 if($_SESSION['usuario_logado']){
-	
     include "editar.php";
 
 }else{
 
-    header('Location: http://sharingdreams.hol.es/');
+    header('Location: http://sharingdreams.co/');
     die();
 
 }

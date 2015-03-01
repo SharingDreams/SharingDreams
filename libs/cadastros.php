@@ -2,35 +2,55 @@
 
 session_start();
 
-ini_set('display_errors',1);
-ini_set('display_startup_erros',1);
-error_reporting(E_ALL);
-
 include "config.php";
 include "banco.php";
 include "helper.php";
 include "Classes/Cadastros.php";
+require_once "captcha/recaptchalib.php";
 
 $cadastros = new Cadastros($mysqli);
 
 $tem_erros = false;
 $erros_validacao = array();
 
+// Register API keys at https://www.google.com/recaptcha/admin
+$siteKey = "SITEKEY";
+$secret = "SECRET";
+// reCAPTCHA supported 40+ languages listed here: https://developers.google.com/recaptcha/docs/language
+$lang = "en";
+// The response from reCAPTCHA
+$resp = null;
+// The error code from reCAPTCHA, if any
+$error = null;
+
 if (tem_post()) {
+	$reCaptcha = new ReCaptcha($secret);
+    // Was there a reCAPTCHA response?
+    if ($_POST["g-recaptcha-response"]) {
+        $resp = $reCaptcha->verifyResponse(
+            $_SERVER["REMOTE_ADDR"],
+            $_POST["g-recaptcha-response"]
+        );
+    }
 
 	$cadastro = array();
 
-	if (isset($_POST['usuario']) && strlen($_POST['usuario']) >= 5) {
-		$verificar = verificar_usuario($mysqli, $_POST['usuario']);
-        if ($verificar == 1) {
-        	$tem_erros = true;
-        	$erros_validacao['verificacao'] = 'Username already in use!';
-        } else {
-        	$cadastro['usuario'] = $_POST['usuario'];
+	if (isset($_POST['usuario']) && strlen($_POST['usuario']) >= 5){
+        if (preg_match("/^([a-zA-Z0-9! ]+)$/", $_POST['usuario'])) {
+    		$verificar = verificar_usuario($mysqli, $_POST['usuario']);
+            if ($verificar == 1) {
+            	$tem_erros = true;
+            	$erros_validacao['verificacao'] = 'Oops! Username already in use :(';
+            } else {
+            	$cadastro['usuario'] = $_POST['usuario'];
+            }
+        }else{
+            $tem_erros = true;
+            $erros_validacao['usuario'] = 'Please don\'t use special characters.';    
         }
     } else {
         $tem_erros = true;
-        $erros_validacao['usuario'] = 'Username must have 5 characters or more!';
+        $erros_validacao['usuario'] = 'Username must have 5 characters or more.';
     }
 
     if (isset($_POST['data_nascimento']) && strlen($_POST['data_nascimento']) > 0) {
@@ -39,15 +59,15 @@ if (tem_post()) {
                 $cadastro['data_nascimento'] = traduz_data_nascimento_para_banco($_POST['data_nascimento']);
             } else {
                 $tem_erros = true;
-                $erros_validacao['data_nascimento'] = 'Invalid date!';
+                $erros_validacao['data_nascimento'] = 'Invalid birthdate.';
             } 
         } else {
             $tem_erros = true;
-            $erros_validacao['data_nascimento'] = 'You are over 18 y.o!';
+            $erros_validacao['data_nascimento'] = 'Sorry, Sharing Dreams is made for artists that are 13 years old or above and less than 18 years old.';
         }
     } else {
         $tem_erros = true;
-        $erros_validacao['data_nascimento'] = 'You forgot the date.';
+        $erros_validacao['data_nascimento'] = 'Oops! You forgot the birthdate.';
     }
 
     $cadastro['sexo'] = $_POST['sexo'];
@@ -56,7 +76,7 @@ if (tem_post()) {
         $cadastro['nome'] = $_POST['nome'];
     } else {
         $tem_erros = true;
-        $erros_validacao['nome'] = 'Ops! You forgot your name!';
+        $erros_validacao['nome'] = 'Oops! You forgot your name!';
     }
 
     if (isset($_POST['email']) && strlen($_POST['email']) > 0) {
@@ -74,14 +94,14 @@ if (tem_post()) {
         }
     } else {
         $tem_erros = true;
-        $erros_validacao['email'] = 'Ops! You forgot your email!';
+        $erros_validacao['email'] = 'Oops! You forgot your email.';
     }
 
     if (isset($_POST['endereco']) && strlen($_POST['endereco']) >= 2) {
         $cadastro['endereco'] = $_POST['endereco'];
     } else {
         $tem_erros = true;
-        $erros_validacao['endereco'] = 'You forgot your address!';
+        $erros_validacao['endereco'] = 'Oops! You forgot your address.';
     }
 
      if (isset($_POST['sobre'])) {
@@ -111,13 +131,27 @@ if (tem_post()) {
     	}
     } else {
         $tem_erros = true;
-        $erros_validacao['senha2'] = 'You forgot here!';
+        $erros_validacao['senha2'] = 'Oops! You forgot to retype your password.';
+    }
+
+    if(!isset($_POST['terms'])) {
+       $tem_erros = true;
+        $erros_validacao['terms'] = "Don't you agree? Why? :("; 
+    }
+
+    if ($resp != null && $resp->success){}
+    else{
+    	$tem_erros = true;
+    	$erros_validacao['captcha'] = "Prove you aren't a robot! :D";
     }
 
     if (! $tem_erros) {
         $cadastros->gravar_cadastro($cadastro);
 
-        header('Location: http://sharingdreams.hol.es/login');
+        $msg_cadastro = "Welcome to Sharing Dreams! Let's make some arts!";
+        $_SESSION["msgCadastro"] = $msg_cadastro; 
+
+        header('Location: http://sharingdreams.co/login');
         die();
     }
 
@@ -138,4 +172,3 @@ $cadastro = array(
 );
 
 include "./templates/participar.php";
-

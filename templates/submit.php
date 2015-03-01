@@ -19,19 +19,29 @@
         </script>
         <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="assets/css/index.css">
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-60227935-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
         <style>
             body {
                 font-family:'Lato', sans-serif;
             }
             .middle {
-                background:#f7f7f7;
+                background:#ececec;
                 height:355px;
                 text-align: center;
             }
             .simple_input {
                 font-family:'Lato', sans-serif;
                 position: relative;
-                margin-top: -165px;
+                margin-top: -145px;
             }
             .txtg {
                 font-size:36px;
@@ -61,21 +71,20 @@
     
     <body>
         <div class="top tp_marginlg">
-            <div class="logo"> 
-                <a href='/'><img src="assets/img/logo.png" class="logo_img"></a>
-                <a href="/gallery" class="gotoglr">Go to Gallery</a>
+            <div class="logo">
+                <a href='/gallery'><img src="assets/img/logo.png" class="logo_img"></a>
             </div>
             <ul class="menu_list">
-                <li><a href="/gallery" id="menu" class="gotoglr">Go to Gallery</a></li>
+                <li><a href="/gallery" id="menu">Gallery</a></li>
                 <li id="menu"><a href='/editProfile' id='menu'>Settings</a></li>
                 <li><a href="deslogar.php" id="menu">Logout</a>
                 <?php if (isset($_SESSION['foto'])) : ?>
                     <li>
-                        <a href="/conta.php?user=<?php echo $_SESSION['usuario']; ?>"><img class="perfil_img_menu" src='/assets/fotos_perfil/<?php echo $_SESSION['foto']['nome']; ?>' width="50px" height="50px" style="-webkit-border-radius:500; -moz-border-radius: 500px; border-radius: 500px; float:right; margin-top:-20px;"></a>
+                        <a href="/conta.php?user=<?php echo $_SESSION['usuario']; ?>"><img id="img-ok" class="perfil_img_menu absolute" src='/assets/fotos_perfil/<?php echo $_SESSION['foto']['nome']; ?>' width="50px" height="50px" style="-webkit-border-radius:500; -moz-border-radius: 500px; border-radius: 500px; float:right; margin-top:-20px;"></a>
                     </li>
                 <?php else : ?>
                     <li>
-                        <a href="/conta.php?user=<?php echo $_SESSION['usuario']; ?>"><img class="perfil_img_menu" src="./assets/img/sem-foto.png" width="50px" height="50px" style="-webkit-border-radius:500; -moz-border-radius: 500px; border-radius: 500px; float:right; margin-top:-20px;"></a>
+                        <a href="/conta.php?user=<?php echo $_SESSION['usuario']; ?>"><img id="img-ok" class="perfil_img_menu absolute" src="./assets/img/sem-foto.png" width="50px" height="50px" style="-webkit-border-radius:500; -moz-border-radius: 500px; border-radius: 500px; float:right; margin-top:-20px;"></a>
                     </li>
                 <?php endif ?>
                 </li>
@@ -101,17 +110,19 @@
             </div>
 
             <center class="center_submit">
-                <input type="text" name='nome_arte' placeholder="Type here the title" class="simple_input">
+                <input type="text" name='nome_arte' placeholder="Type here the title" class="simple_input" id="input_nome_arte">
 
                 <input type="file" name='arte' id="file-upload" style="display:none;">
 
                 <input type="hidden" id="descricao-arte" name="descricaoArte" >
                 
-                <p class="txtup">Tell us about your art:</p>
+                <p class="txtup" id="tell_us">Tell us about your art:</p>
                 <div class="editable"></div>
                 <div style="height:50px;"></div>
-
-                <input type="submit" class="upload_button" value="Submit">
+                <div class="g-recaptcha" data-sitekey="<?php echo $siteKey;?>"></div>
+                <script type="text/javascript"src="https://www.google.com/recaptcha/api.js?hl=<?php echo $lang;?>"></script>
+                <div style="height:50px;"></div>
+                <input type="submit" class="upload_button" value="Submit" id="submit_btn_art">
 
                 <div style="height:50px;"></div>
             </center>

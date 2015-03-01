@@ -5,7 +5,7 @@ ini_set('display_startup_erros',1);
 error_reporting(E_ALL);
 
 if (!isset($_GET['q'])) {
-	header("Location: http://sharingdreams.hol.es/");
+	header("Location: http://sharingdreams.co/");
 	exit;
 }
 

@@ -12,9 +12,9 @@ include "helper.php";
 
 if(isset($_SESSION['usuario_logado'])){
 	
-    header('Location: http://sharingdreams.hol.es/');
+    header('Location: http://sharingdreams.co/gallery');
 
-}elseif(!empty($_GET['id']) && !empty($_GET['email'])){
+}elseif(isset($_GET['id']) && isset($_GET['email'])){
 
 	$tem_erros = false;
 	$erros_validacao = array();
@@ -24,7 +24,7 @@ if(isset($_SESSION['usuario_logado'])){
 	 $verficar_cod = verificar_codigo($mysqli, $_GET['id']);
 
 	 if($verificar == 0 or $verficar_cod == 0){
-	 	header("Location: http://sharingdreams.hol.es/");
+	 	header("Location: http://sharingdreams.co/");
 	 }
 
 
@@ -35,8 +35,9 @@ if(isset($_SESSION['usuario_logado'])){
 
 	        	$email = $_GET['email'];
 	        	$cod = $_GET['id'];
+	        	$senha = $_POST['pass1'];
 
-	        	trocar_senha($email, $id, $senha);
+	        	trocar_senha($mysqli, $email, $cod, $senha);
 
 	        } else {
 	            $tem_erros = true;
@@ -44,18 +45,18 @@ if(isset($_SESSION['usuario_logado'])){
 	        }
 	    } else {
 	        $tem_erros = true;
-	        $erros_validacao['email'] = 'Ops! You forgot the email!';
+	        $erros_validacao['email'] = 'Oops! You forgot the email!';
 	    }
 
 	    if (! $tem_erros) {
-	    	$mensagem_certo['email'] = 'Your password has been changed!';
-	    	header('Location: forgot.php');
+	    	$_SESSION['m_email'] = 'Your password has been changed!';
+	    	header("Location: /login");
 	        die();
 	    }
 
 	}
 
-    include "../templates/template_forgot2.php";
+    include "./templates/template_forgot2.php";
 }else{
 
 	$tem_erros = false;
@@ -75,12 +76,32 @@ if(isset($_SESSION['usuario_logado'])){
 
 	            	$codigo = rand().rand().rand();
 
-	            	inserir_cod($codigo, $email);
+	            	inserir_cod($mysqli, $codigo, $email);
 	      
-	            	$subject = 'Password recovery Sharing Dreams';
-					$message = "Hello $nome! To recover your password, click in link below:
-						         <br><br>
-						         <a href='http://sharingdreams.hol.es/forgot.php?id=$codigo&email=$email'>Click here to change your password!</a>";
+	            	$subject = 'Password recovery - Sharing Dreams';
+					$message = "<div style='backgorund:#fff; width:640px;'>
+									<div style='width:610px; height:75px; background-color:#e3e3e3; padding-top:30px; padding-left:30px;'>
+										<img src='http://sharingdreams.co/assets/img/logo.png'>
+									</div>
+									<center>
+										<h1>
+											Password recovery - Sharing Dreams
+										</h1>
+									</center>
+									<br>
+									<br>
+									<p style='color:#484747; margin-left:35px;'>
+										Hello $nome! To recover your password, click in link below:
+						         		<br><br>
+						         		<a href='http://sharingdreams.co/forgot.php?id=$codigo&email=$email'>
+						         			Click here to change your password!
+						         		</a>
+							         	<br><br>
+							         	Let's make some arts!<br><br>
+							         	Have a nice day,
+							         	<a href='www.sharingdreams.co'>Sharing Dreams</a>
+							        </p>
+						       	</div>";
 					$headers = 'From: Sharing-Dreams dontreply@sharingdreams.com' . "\r\n" .
 								'Content-type: text/html; charset=utf-8' . "\r\n";
 
@@ -95,17 +116,17 @@ if(isset($_SESSION['usuario_logado'])){
 	        }
 	    } else {
 	        $tem_erros = true;
-	        $erros_validacao['email'] = 'Ops! You forgot the email!';
+	        $erros_validacao['email'] = 'Oops! You forgot the email!';
 	    }
 
 	    if (! $tem_erros) {
 	    	$mensagem_certo['email'] = 'Check your email!';
-	    	header('Location: forgot.php');
+	    	include "./templates/template_forgot.php";
 	        die();
 	    }
 
 	}
 
-    include "../template/template_forgot.php";
+    include "./templates/template_forgot.php";
 
 }

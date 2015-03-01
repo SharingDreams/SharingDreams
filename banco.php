@@ -1,6 +1,6 @@
 <?php
 
-$mysqli = new mysqli(BD_SERVIDOR, BD_USUARIO, BD_SENHA, BD_BANCO);
+$mysqli = new mysqli("SERVERBD", "USERDB", "PASSWORDDB", "DB");
 
 if ($mysqli->connect_errno) {
     echo "There is a problem!";
@@ -19,7 +19,7 @@ function verificar_usuario($mysqli, $usuario)
 
 function verificar_email($mysqli, $email)
 {
-    $sqlBusca = "SELECT * FROM cadastro WHERE email = '$email'";
+    $sqlBusca = "SELECT email FROM cadastro WHERE email = '$email'";
     $resultado = $mysqli->query($sqlBusca);
 
     $verificar =  mysqli_num_rows($resultado);
@@ -43,6 +43,25 @@ function verificar_login($mysqli, $usuario, $senha)
     $resultado = $mysqli->query($sqlBusca);
 
     $verificar =  mysqli_num_rows($resultado);
+
+    return $verificar;
+}
+
+function verifica_idade($mysqli, $usuario, $senha)
+{
+    $sqlBusca = "SELECT data_nascimento FROM cadastro WHERE usuario = '$usuario' AND senha = '$senha'";
+    $resultado = $mysqli->query($sqlBusca);
+
+    $verificar =  mysqli_fetch_assoc($resultado);
+
+    return $verificar;
+}
+
+function verificar_darte($mysqli, $id, $id_arte){
+    $query = "SELECT * FROM artes WHERE id='$id_arte' AND cadastro_id='$id'";
+    $run = $mysqli->query($query);
+
+    $verificar = mysqli_num_rows($run);
 
     return $verificar;
 }
@@ -106,6 +125,14 @@ function editar_foto($mysqli, $foto) {
     $mysqli->query($sqlEditar);
 }
 
+function editar_arte($mysqli, $id, $desc) {
+    $sqlEditar = "UPDATE artes SET descricao_arte = '$desc' WHERE id = '$id'";
+
+    $mysqli->query($sqlEditar);
+
+    return true;
+}
+
 function buscar_artes($mysqli)
 {
     $sqlBusca = "SELECT * FROM artes ORDER BY id DESC";
@@ -148,6 +175,19 @@ function buscar_artes_artista($mysqli, $cadastro_id){
     return $artes_artista;
 }
 
+function buscar_artes_artista_by_search($mysqli, $cadastro_id, $search) {
+    $sqlBusca = "SELECT * FROM artes WHERE cadastro_id = '$cadastro_id' AND acc='1' ORDER BY id DESC";
+    $resultado = mysqli_query($mysqli, $sqlBusca);
+
+    $artes_artista = array();
+
+    while ($arte_artista = mysqli_fetch_assoc($resultado)) {
+        $artes_artista[] = $arte_artista;
+    }
+
+    return $artes_artista;   
+}
+
 function buscar_artes_artista_limitadas($mysqli, $cadastro_id){
     $sqlBusca = "SELECT * FROM artes WHERE cadastro_id = '$cadastro_id' AND acc = '1' ORDER BY id DESC LIMIT 5";
     $resultado = mysqli_query($mysqli, $sqlBusca);
@@ -181,7 +221,7 @@ function converte_user_id($mysqli, $user) {
 }
 
 function buscar_dados_perfil_conta($mysqli, $id) {
-    $sqlBusca = "SELECT id, nome, usuario, sobre, endereco FROM cadastro WHERE id = '$id'";
+    $sqlBusca = "SELECT id, nome, usuario, sobre, data_nascimento, endereco FROM cadastro WHERE id = '$id'";
     $resultado = $mysqli->query($sqlBusca);
 
     return mysqli_fetch_assoc($resultado); 
@@ -270,17 +310,85 @@ function recuperar_dados($mysqli, $email) {
     return $dados;    
 }
 
-function inserir_cod($cod, $email){
-    $sqlTroca = "UPDATE cadastro SET  codigo = '$cod' WHERE email=$email";
+function inserir_cod($mysqli, $cod, $email){
+    $sql = "UPDATE cadastro SET codigo = '$cod' WHERE email = '$email'";
+    $resultado = mysqli_query($mysqli, $sql);
+
+    return true; 
+}
+
+function trocar_senha($mysqli, $email, $cod, $senha){
+    $senha = md5($senha);
+    $sqlTroca = "UPDATE cadastro SET senha = '$senha' WHERE email= '$email' AND codigo = '$cod' ";
     $resultado = mysqli_query($mysqli, $sqlTroca);
 
     return true; 
 }
 
-function trocar_senha($email, $cod, $senha){
-    $senha = md5($senha);
-    $sqlTroca = "UPDATE cadastro SET  senha = '$senha' WHERE email=$email AND codigo=$cod";
-    $resultado = mysqli_query($mysqli, $sqlTroca);
+function adquire_usuario($mysqli, $id)
+{
+    $sqlBusca = "SELECT * FROM cadastro WHERE id = '$id'";
+    $resultado = $mysqli->query($sqlBusca);
 
-    return true; 
+    $f =  mysqli_fetch_assoc($resultado);
+
+    $user = $f["usuario"];
+    
+    return $user;
+}
+
+function delelar_conta($mysqli, $id) {
+    $sql = "DELETE FROM cadastro WHERE id = '$id'";
+
+    $result = mysqli_query($mysqli, $sql);
+
+    return true;
+}
+
+function deletar_artes_conta($mysqli, $id) {
+    $r = $mysqli->query("SELECT * FROM artes WHERE cadastro_id='$id'");
+
+    while($f=$r->fetch_assoc()){
+        unlink("./artes/".$f["arquivo"]);
+        unlink("./artes/thumbnails/".$f["arquivo"]);
+    }
+
+    $sql = "DELETE FROM artes WHERE cadastro_id = '$id'";
+
+    $result = mysqli_query($mysqli, $sql);
+
+    return true;
+}
+
+function deletar_arte($mysqli, $id) {
+    $r = $mysqli->query("SELECT * FROM artes WHERE id='$id'");
+
+    while($f=$r->fetch_assoc()){
+        unlink("./artes/".$f["arquivo"]);
+        unlink("./artes/thumbnails/".$f["arquivo"]);
+    }
+
+    $sql = "DELETE FROM artes WHERE id = '$id'";
+
+    $result = mysqli_query($mysqli, $sql);
+
+    return true;
+}
+
+function verificar_senha_excluir($mysqli, $id, $senha)
+{
+
+    $sqlBusca = "SELECT id, senha FROM cadastro WHERE id = '$id' AND senha = '$senha'";
+    $resultado = $mysqli->query($sqlBusca);
+
+    $verificar = mysqli_num_rows($resultado);
+
+    return $verificar;
+}
+
+function buscar_dados_usuario($mysqli, $id) {
+    $sqlBusca = 'SELECT id, nome FROM cadastro WHERE id = ' . $id;
+    $resultado = $mysqli->query($sqlBusca);
+    
+    return mysqli_fetch_assoc($resultado);
 }

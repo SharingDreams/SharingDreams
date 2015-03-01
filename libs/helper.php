@@ -66,17 +66,41 @@ function validar_data_nascimento($data)
 }
 
 function verificar_idade($data) {
-	$ano_atual = 2014;
 
-	$dados = explode('/', $data);
+	$padrao = '/^[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}$/';
+    $resultado = preg_match($padrao, $data);
 
-    $ano = $dados[2];
+	if(! $resultado) {
+		return false;
+	} else {
+		$e = explode("/", $data);
+		$datan = $e[2].$e[0].$e[1];
+		$dataA = date('Ymd');
+		$idade = substr(($dataA-$datan), 0, 2);
 
-    if (($ano_atual - $ano) > 18) {
-    	return false;
-    } else {
-    	return true;
-    }
+	    if ($idade >= 18) {
+	    	return false;
+	    } else if ($idade < 13) {
+	    	return false;
+	    } else {
+	    	return true;
+	    }
+	}
+}
+
+function verificar_idade_c($data) {
+		$e = explode("-", $data);
+		$datan = $e[0].$e[1].$e[2];
+		$dataA = date('Ymd');
+		$idade = substr(($dataA-$datan), 0, 2);
+
+	    if ($idade >= 18) {
+	    	return false;
+	    } else if ($idade < 13) {
+	    	return false;
+	    } else {
+	    	return true;
+	    }
 }
 
 
@@ -135,8 +159,8 @@ function tratar_arte($arte)
         return false;
     }
 
-    $largura = 200;
-    $altura = 300;
+    $largura = 300;
+    $altura = 200;
 
     $dimensoes = getimagesize($arte["tmp_name"]);
 
@@ -148,6 +172,8 @@ function tratar_arte($arte)
     	return false;
     }
 
+    $porc = (($altura/$largura)-1)*100;
+
     $rand = md5(rand().microtime().rand().microtime());
     $ext = end(explode(".", $arte['name']));
 	$_SESSION['rand'] = $rand.'.'.$ext;
@@ -156,7 +182,8 @@ function tratar_arte($arte)
     move_uploaded_file($arte['tmp_name'], "./artes/".$arquivo);
 
     $resizeImg = new resize('./artes/'.$arquivo);
-    $resizeImg -> resizeImage(300, 200, 'exact');
+    if($porc >= 20){$resizeImg -> resizeImage(140, 200, 'exact');}else{
+    $resizeImg -> resizeImage(300, 200, 'exact');}
     $resizeImg -> saveImage('./artes/thumbnails/'.$arquivo, 100);
 
 

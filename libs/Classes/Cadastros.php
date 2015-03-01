@@ -14,9 +14,11 @@ class Cadastros
 		$to = $email;
 		$subject = $subject;
 		$message = $mensage;
-		$headers = 'From: Sharing-Dreams dontreply@sharingdreams.com' . "\r\n" .
-					'Content-type: text/html; charset=utf-8' . "\r\n";
-		mail($to,$subject,$message,$headers);
+
+		$headers = "MIME-Version: 1.1\n";
+		$headers .= "Content-type: text/html; charset=utf-8\n";
+		$headers .= "From: Sharing-Dreams noreply@sharingdreams.co"."\n"; // remetente
+		$envio = mail($to, $subject, $message, $headers, "-r"."noreply@sharingdreams.co");
 	}
 
 	public function gravar_cadastro($cadastro)
@@ -24,7 +26,7 @@ class Cadastros
 		$usuario = $this->mysqli->escape_string($cadastro['usuario']);
 		$nome = $this->mysqli->escape_string($cadastro['nome']);
 		$senha = $this->mysqli->escape_string($cadastro['senha']);
-		$senha2 = $this->mysqli->escape_string(md5($cadastro['senha']));
+		$senha2 = $this->mysqli->escape_string(sha1(md5(md5($cadastro['senha']))));
 		$email = $this->mysqli->escape_string($cadastro['email']);
 		$endereco = $this->mysqli->escape_string($cadastro['endereco']);
 		$data_nascimento = $this->mysqli->escape_string($cadastro['data_nascimento']);
@@ -47,15 +49,34 @@ class Cadastros
 				)
 			";
 
-		$subject = 'Welcome to Sharing Dream';
-		$mensage = "Hello $nome! Thank you for signing up in Sharing Dreams.<br>
-			         Your registration data are:<br><br>
-			         Username: <b>$usuario</b><br>
-			         Password: <b>$senha</b><br>
-			         <br><br>
-			         <a href='www.sharingdreams.url.ph'>Sharing Dreams</a>";
+		$subject = 'Welcome to Sharing Dreams \o/';
+		$mensage = "<div style='backgorund:#fff; width:640px;'>
+						<div style='width:610px; height:75px; background-color:#e3e3e3; padding-top:30px; padding-left:30px;'>
+							<img src='http://sharingdreams.co/assets/img/logo.png'>
+						</div>
+						<center>
+							<h1>
+								Welcome to Sharing Dreams \o/
+							</h1>
+						</center>
+						<br>
+						<br>
+						<p style='color:#484747; margin-left:35px;'>
+							Hello $nome!<br>
+						 	Thank you for signing up in Sharing Dreams.<br>
+				         	Now you can help us to make a difference in the world :)<br>
+							<br>
+							Your registration data are:<br>
+				         	Username: <b>$usuario</b><br>
+				         	Password: <b>$senha</b><br>
+				         	<br><br>
+				         	Let's make some arts!<br><br>
+				         	Have a nice day,
+				         	<a href='www.sharingdreams.co'>Sharing Dreams</a>
+				        </p>
+			       	</div>";
 
-		$this->email($email,$mensage,$subject);
+		$this->email($email,$mensage,$subject, $headers);
 
 		$this->mysqli->query($sqlGravar);
 	}

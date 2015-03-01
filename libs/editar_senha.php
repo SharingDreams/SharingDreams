@@ -47,7 +47,7 @@ if (tem_post()) {
                 }
             } else {
                 $tem_erros = true;
-                $erros_validacao['senha2'] = 'You forgot here!';
+                $erros_validacao['senha2'] = 'You forgot to retype your password!';
             }
 
         } else {
@@ -65,7 +65,9 @@ if (tem_post()) {
                             
         $cadastros->editar_senha($cadastro);
 
-        header('Location: http://sharingdreams.hol.es/');
+
+        $_SESSION["pedit"] = "Your password has been changed!";
+        header('Location: http://sharingdreams.co/gallery');
 
         die();
                 

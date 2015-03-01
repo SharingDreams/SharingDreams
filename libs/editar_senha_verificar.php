@@ -12,7 +12,7 @@ if(isset($_SESSION['usuario_logado'])){
 
 }else{
 
-    header('Location: http://sharingdreams.hol.es/');
+    header('Location: http://sharingdreams.co/gallery');
     die();
 
 }

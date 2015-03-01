@@ -6,10 +6,17 @@
                 font-family:'Open Sans', sans-serif;
                 background-color:#fff;
             }
+            .body{
+                text-align:left;
+                margin-left:65px;
+                margin-top:55px;
+                margin-bottom:50px;
+                width:450px;
+            }
             .top {
                 height:60px;
-                margin-left: 15px;
                 margin-right: 15px;
+                font-size:16px;
             }
             .logo {
                 margin-top:11px;
@@ -26,17 +33,29 @@
                 display: inline-block;
             }
             .middle{
-                background: url('http://www.dennyzen.com/wp-content/uploads/2014/04/child-happy-face.jpg') no-repeat center center fixed;
+                background: url('http://sharingdreams.co/assets/img/greenbg.jpg') no-repeat center center fixed;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
                 background-size: cover;
-                height: 500px;
+                height: 400px;
+                text-align:left;
+                font-family:'Oswaldo', sans-serif;
+            }
+            .middle#about{
+                text-align:center;
+                color:white;
             }
             li {
                 list-style:none;
                 margin-left: 12px;
                 display:inline;
+            }
+            li#institutes{
+                list-style: initial;
+                display:list-item;
+                margin-left:2px;
+                margin-top:-12px;
             }
             .hr {
                 width:100%;
@@ -50,9 +69,8 @@
                 color:#484848;
             }
             .txtg_index{
-                font-size: 42px;
-                text-align:center;
-                margin-top: 165px;
+                font-size: 30px;
+                margin-top: 100px;
                 color: white;
             }
             a {
@@ -114,7 +132,7 @@
                 -moz-box-shadow: 1px 1px 2px #e6e6e6;
                 box-shadow: 1px 1px 2px #e6e6e6;
                 cursor: default;
-                background: #fff url(../images/bgimg.jpg) no-repeat center center;
+                background: #e5e5e5;
                 margin-left:-35px;
             }
             .view .mask, .view .content {
@@ -237,9 +255,7 @@
 
             .full_art{
                 border-radius:5px;
-                width:465px;
                 height:300px;
-                margin-top:18px;
                 display: inline-block;
             }
 
@@ -258,15 +274,28 @@
             }
 
             .donate_button{
-                width: 195px;
-                height: 45px;
                 background-color: #20c263;
                 border-radius: 5px;
-                padding-top: 15px;
                 margin-top: 10px;
                 color: white;
                 text-align: center;
                 font-size: 18px;
+                border: 0;
+                padding: 10px;
+            }
+
+            .green_button{
+                display:inline-block;
+                height: 30px;
+                background-color: #20c263;
+                border-radius: 5px;
+                padding: 15px;
+                margin-top:10px;
+                padding-bottom:0px;
+                color: white;
+                text-align: center;
+                font-size: 14px;
+                font-family:'Oswaldo', sans-serif;
             }
 
             .more_of{
@@ -338,8 +367,8 @@
             }
 
             .art_img_src{
-                width:300px;
                 height:200px;
+                display:inline-block !important;
             }
 
             .pages_box{
@@ -354,7 +383,7 @@
 
             .searchLabel{
                 text-align:center;
-                margin-top:30px;
+                margin-top:50px;
                 margin-bottom:5px;
                 font-size:19px;
             }
@@ -395,7 +424,7 @@
 
             .about_team{
                 text-align:center;
-                margin-left:166px;
+                margin-left:105px;
                 margin-top:40px;
             }
 
@@ -442,7 +471,7 @@
             }
 
             #form_upload_art{
-                display:inline-block;
+                /*isplay:inline-block;*/
             }
 
             .simple_input{
@@ -474,6 +503,13 @@
             h1.thank_you{
                 font-size:60px;
                 text-align:center;
+            }
+
+            h1.index{
+                font-family:'Oswaldo', sans-serif;
+                font-size:30px;
+                margin-bottom:7px;
+                margin-top:75px;
             }
 
             a#preto{
@@ -515,20 +551,42 @@
                 -webkit-border-radius:500px; 
                 -moz-border-radius: 500px; 
                 border-radius: 500px; 
-                margin-left:557px;
             }
             .city{
                 text-align: center;
             }
-            #menu-margin{
-                margin-right:20px !important;
+            .about-me{
+                padding-left:20px;
+                padding-right:20px;
             }
-            #logo-margin{
-                margin-left:20px !important;
-            }
+            .botoes{
+				margin-top: 10px;
+				color:#484848;
+				padding:10px;
+				text-align:center;
+				cursor:pointer;
+				-webkit-transition: all 3.2s ease;
+				-moz-transition: all 3.2s ease;
+				-ms-transition: all 3.2s ease;
+				-o-transition: all 3.2s ease;
+				transition: all 3.2s ease;
+				border:0;
+			}
+			.botoes:hover{
+				background:black;
+				color:white;
+			}
+            
 
 
             @media(min-width:1000px){
+
+                #menu-margin{
+                    margin-right:20px !important;
+                }
+                #logo-margin{
+                    margin-left:20px !important;
+                }
 
                 .amount{
                     font-size:24px;
@@ -653,25 +711,41 @@
             /* IPHONE */
 
             @media(max-width: 329px){
+                #menu-margin{
+                    margin-right:20px !important;
+                }
+                #logo-margin{
+                    margin-left:10px !important;
+                }
                 body{
                     max-width:329px;
                     overflow-x:hidden;
                 }
                 .top{
-                    width:300px;
+                    width:100%;
                 }
                 .logo_img{
                     width:140px;
                     margin-top:13px;
-                    margin-left:-8px;
+                    margin-left:0px;
                 }
                 .menu_list{
                     margin-left:-30px;
+                    margin-right:10px;
                 }
                 .perfil_img_menu{
                     width:0;
                     height:0;
                     opacity:0;
+                }
+                #img-ok{
+                    width:50px !important;
+                    height:50px !important;
+                    opacity:1 !important;
+                    right: 0;
+                    position: fixed;
+                    margin-right: 10px;
+                    margin-top: -20px !important;
                 }
                 .about_img{
                     margin-top:20px;
@@ -701,6 +775,8 @@
                     width:280px;
                     height:180px;
                     display:inline-block;
+                    margin-top:20px;
+                    margin-bottom:20px;
                 }
                 .art_img_src{
                     width:280px;
@@ -750,10 +826,11 @@
                     margin-left: 30px;
                     margin-top: -15px;
                 }
-                .full_art{
-                    width:280px;
-                    height:180px;
-                    margin-left:-20px;
+                .full_art_all{
+                    display: inline-block;
+                    width: 300px;
+                    margin-left: -16px;
+                    background: #e5e5e5;
                 }
                 input#usernameLogin,
                 input#passwordLogin, 
@@ -781,9 +858,9 @@
                 }
                 .searchLabel{
                     text-align:center;
-                    margin-top:30px;
+                    margin-top:0px !important;
                     margin-bottom:5px;
-                    margin-left:90px;
+                    margin-left:110px;
                     font-size:19px;
                 }
                 .author-image{
@@ -802,11 +879,6 @@
                     width:290px;
                     text-align:center;
                 }
-                .donate_button{
-                    width:175px;
-                    height:35px;
-                    margin-left:0px;
-                }
                 .fb_like, .fb_iframe_widget{
                     margin-left:-30px;
                 }
@@ -820,7 +892,8 @@
                 ul.about_team{
                     width: 180px;
                     margin-top: 20px;
-                    margin-left: -40px;
+                    margin-left: -115px;
+                    display:block;
                 }
                 .about_text{
                     width:255px;
@@ -830,19 +903,15 @@
                     width:150px;
                     display: inline-block;
                     margin-top: 30px;
+                    margin-left:53px;
                 }
                 .middle{
-                    height: 380px;
-                    width: 350px;
-                }
-                .txtg_index{
-                    margin-top:135px;
-                    width:280px;
-                    margin-left: 20px;
-                    font-size:36px;
+                    height: 320px;
+                    width: 103%;
                 }
                 .middle#art_page{
                     height:350px !important;
+                    width:100%;
                 }
                 .about_donate{
                     width:300px !important;
@@ -862,7 +931,7 @@
                     margin-left:0px !important;
                 }
                 .t_submit{
-                    margin-left:-20px !important;
+                    margin-left:-9px !important;
                 }
                 .center_submit{
                     margin-left:-30px;
@@ -882,16 +951,15 @@
                 .author_name{
                     margin-top:-22px;
                 }
-                .img_conta{
-                    margin-left:85px;
-                }
                 .tp_marginlg a.gotoglr{
-                    margin-left:0px;
+                    margin-left:-20px;
                 }
                 .tp_marginlg ul.menu_list{
                     text-align:center;
                     left:0;
                     position:absolute;
+                    margin-left:-40px;
+                    width:100%;
                 }
                 #email_leo{
                     margin-left:-15px;
@@ -903,6 +971,44 @@
                     width:250px !important;
                     margin-left:60px !important;
                     float:left !important;
+                }
+                .absolute{
+                    position:absolute !important;
+                    margin-right:-10% !important;
+                }
+                #input_nome_arte{
+                    margin-left:25px !important;
+                }
+                #tell_us{
+                    margin-left:25px;
+                }
+                .Editor-container{
+                    margin-left:30px;
+                }
+                #submit_btn_art{
+                    margin-left:30px;
+                }
+                .pages_box_profile{
+                    margin-left:130px;
+                }
+                .fix_img_profile{
+                    margin-right:-10% !important;
+                }
+                img#we{
+                    width:280px;
+                }
+                .body{
+                    margin-left:30px;
+                    width:260px;
+                }
+                .middle#about{
+                    height:360px;
+                    width:calc(100% - 30px);
+                }
+                .txtg_index{
+                    margin-top:50px;
+                    width:280px;
+                    font-size:36px;
                 }
             }
 
@@ -916,6 +1022,7 @@
                 .top{
                     width:100%;
                     margin:0px !important;
+                    margin-top:-1px;
                 }
                 .logo_img{
                     width:150px;
@@ -939,7 +1046,9 @@
                     margin:0;
                 }
                 input#search{
-                    width:285px;
+                    width:265px;
+                    margin-left:-30px;
+                    margin-bottom:20px;
                 }
                 .gallery_ol, .gallery{
                     width:300px;
@@ -952,6 +1061,9 @@
                     width:300px;
                     height:200px;
                     display:inline-block;
+                    margin-top:20px;
+                    margin-bottom:20px;
+                    margin-left:43px;
                 }
                 .art_img_src{
                     width:300px;
@@ -965,7 +1077,7 @@
                 .pages_box{
                     position:absolute;
                     margin-top:20px;
-                    margin-left:30px;
+                    margin-left:35px;
                     margin-bottom:20px;
                 }
                 .author-image{
@@ -1019,21 +1131,17 @@
                     width:45px;
                     height:45px;
                 }
-                .full_art{
-                    width:300px;
-                    height:200px;
-                    margin-left:-16px;
+                .full_art_all{
+                    display: inline-block;
+                    width: 300px;
+                    margin-left: -16px;
+                    background: #e5e5e5;
                 }
                 .about_donate_text{
                     padding-right: 0px;
                     text-align: center;
                     width: 290px;
                     margin-left: 7px;
-                }
-                .donate_button{
-                    width:175px;
-                    height:35px;
-                    margin-left:0px;
                 }
                 .why{
                     margin-left:73px;
@@ -1046,10 +1154,13 @@
                     margin-left:-25px;
                     margin-top:-15px;
                 }
+                ul{
+                    display:block;
+                }
                 ul.about_team{
                     width: 190px;
                     margin-top: 20px;
-                    margin-left: -45px;
+                    margin-left: -41px;
                 }
                 .about_text{
                     width:290px;
@@ -1058,16 +1169,13 @@
                 .about_team_member{
                     width:190px;
                 }
-                .middle{
-                    height: 380px;
-                    width: 110%;
-                    margin-left:-30px;
+                .about_team_member_image{
+                    margin-top:20px;
                 }
-                .txtg_index{
-                    margin-top:135px;
-                    width:280px;
-                    margin-left: 50px;
-                    font-size:36px;
+                .middle{
+                    height: 320px;
+                    width: 113.2%;
+                    margin-left:-30px;
                 }
                 .middle#art_page{
                     height:400px !important;
@@ -1106,32 +1214,18 @@
                     height:0;
                 }
                 ul.menu_list{
-                    margin-left:-25px;
+                    margin-left:-35px !important;
+                    margin-right:7px !important;
                 }
                 .about_art{
                     width:90%;
                     overflow:auto;
-                }
-                .rizzo{
-                    margin-left:-5px;
-                }
-                .leo{
-                    margin-left:-10px;
-                }
-                .thor{
-                    margin-left:-15px;
-                }
-                .joao{
-                    margin-left:-20px;
                 }
                 .art_name{
                     margin-top:-1px;
                 }
                 .author_name{
                     margin-top:-22px;
-                }
-                .img_conta{
-                    margin-left:30%;
                 }
                 .forgetpass{
                     width:300px;
@@ -1142,16 +1236,67 @@
                 .upload_button{
                     margin-left:5%;
                 }
+                .txtup{
+                    margin-left:30px;
+                }
+                #menu_margin{
+                    margin-right:10px !important;
+                }
+                .que_bom{
+                    font-size: 2.0em;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                }
+                #logo-margin{
+                    margin-left: 15px !important;
+                }
+                #img-ok{
+                    width:50px !important;
+                    height:50px !important;
+                    opacity:1 !important;
+                    right: 0;
+                    position: fixed;
+                    margin-right: 10px;
+                    margin-top: -20px !important;
+                }
+                .pages_box_profile{
+                    margin-left:145px;
+                }
+                .forwhoRegister{
+                    margin-left:-2px;
+                }
                 .tp_marginlg a.gotoglr{
-                    margin-left:0px;
+                    margin-left:-20px;
                 }
                 .tp_marginlg ul.menu_list{
                     text-align:center;
                     left:0;
                     position:absolute;
+                    margin-left:-13% !important;
+                    width:100%;
                 }
-                .txtup{
+                .absolute{
+                    position:absolute !important;
+                    margin-right:-10% !important;
+                }
+                .fix_img_profile{
+                    margin-right:-10% !important;
+                }
+                img#we{
+                    width:290px;
+                }
+                .body{
                     margin-left:30px;
+                    width:270px;
+                }
+                .middle#about{
+                    height:360px;
+                    width:calc(100% - 30px);
+                }
+                .txtg_index{
+                    margin-top:50px;
+                    width:290px;
+                    font-size:36px;
                 }
             }
 
@@ -1179,7 +1324,8 @@
                     margin-top:25px;
                 }
                 input#search{
-                    width:340px;
+                    width:300px;
+                    margin-left:-31px;
                 }
                 .view{
                     margin:0;
@@ -1207,8 +1353,11 @@
                 .pages_box{
                     position:absolute;
                     margin-top:20px;
-                    margin-left:100px;
+                    margin-left:75px;
                     margin-bottom:20px;
+                }
+                .pages_box_profile{
+                    margin-left:140px;
                 }
                 .author-image{
                     margin-left:-30px;
@@ -1261,10 +1410,11 @@
                     width:55px;
                     height:55px;
                 }
-                .full_art{
-                    width:340px;
-                    height:240px;
-                    margin-left:5px;
+                .full_art_all{
+                    display: inline-block;
+                    width: 340px;
+                    margin-left: 5px;
+                    background: #e5e5e5;
                 }
                 .info_art{
                     padding-top:10px;
@@ -1275,28 +1425,18 @@
                     padding-right:10px;
                 }
                 .about_donate_text{
-                    padding-right:30px;
                     text-align:center;
-                    margin-left:0px;
-                }
-                .donate_button{
-                    width:175px;
-                    height:35px;
-                    margin-left:0px;
+                    margin-left:10px;
                 }
                 .why{
-                    margin-left:90px;
+                    margin-left:87px;
                 }
                 .more_of{
                     margin-left:15px;
                     margin-top:20px;
                 }
-                .fb-like, .fb_iframe_widget{
-                    margin-left:84px;
-                    margin-top:-15px;
-                }
                 .art{
-                    margin-left:20px;
+                    margin-left:0px;
                 }
                 ul.about_team{
                     width: 480px;
@@ -1312,14 +1452,7 @@
                 }
                 .middle{
                     height: 380px;
-                    width: 400px;
-                    margin-left:-30px;
-                }
-                .txtg_index{
-                    margin-top:135px;
-                    width:280px;
-                    margin-left: 85px;
-                    font-size:36px;
+                    width: 100%;
                 }
                 .middle#art_page{
                     height:400px !important;
@@ -1329,7 +1462,7 @@
                     margin-left:-3px !important;
                 }
                 .paypal-button{
-                    margin-left: 52px;
+                    margin-left: 61px;
                 }
                 .t_submit{
                     width: 280px;
@@ -1359,31 +1492,17 @@
                 }
                 ul.menu_list{
                     margin-left:-25px;
+                    margin-right:8px;
                 }
                 .about_art{
                     width:90%;
                     overflow:auto;
-                }
-                .rizzo{
-                    margin-left:-5px;
-                }
-                .leo{
-                    margin-left:-10px;
-                }
-                .thor{
-                    margin-left:-15px;
-                }
-                .joao{
-                    margin-left:-20px;
                 }
                 .art_name{
                     margin-top:-1px;
                 }
                 .author_name{
                     margin-top:-22px;
-                }
-                .img_conta{
-                    margin-left:30%;
                 }
                 .forgetpass{
                     width:350px;
@@ -1405,6 +1524,36 @@
                 .txtup{
                     margin-left:30px;
                 }
+                img#we{
+                    width:340px;
+                }
+                .body{
+                    margin-left:30px;
+                    width:340px;
+                }
+                .middle#about{
+                    height:360px;
+                    width:calc(100% - 30px);
+                }
+                .txtg_index{
+                    margin-top:50px;
+                    width:290px;
+                    font-size:36px;
+                }
+                .art_name{
+                    margin-top:-1px;
+                }
+                .author_name{
+                    margin-top:-32px;
+                }
+                .amount{
+                    float:right;
+                    margin-right:45px;
+                    margin-top:55px;
+                }
+                .amount_dollar{
+                    display:inline;
+                }
             }
             
 
@@ -1414,39 +1563,36 @@
 
             @media(min-width: 750px) and (max-width:999px) {
                 body{
-                    max-width:999px;
                     overflow-x:hidden;
                     margin:0 auto;
                 }
-                .top{
-                    width:730px;
-                }
-                .logo_img{
-                    width:220px;
-                    margin-top:7px;
-                }
                 .about_img{
                     margin-top:20px;
-                    width:670px;
+                    width:290px;
                 }
                 .txtg{
                     font-size:18px;
                     margin-top:25px;
                 }
                 input#search{
-                    width:500px;
+                    width:300px;
+                    margin-left:-31px;
                 }
                 .view{
                     margin:0;
                 }
                 .gallery_ol, .gallery{
-                    width:700px;
-                    margin-left:2px;
+                    width:650px;
+                }
+                .gallery_ol{
+                    margin-left:-83px;
                 }
                 .art_li{
-                    width:300px;
+                    width:240px;
                     height:200px;
                     display:inline-block;
+                    margin-bottom:20px;
+                    margin-top:20px;
                 }
                 .art_img_src{
                     width:300px;
@@ -1458,32 +1604,36 @@
                     opacity:0;
                 }
                 .pages_box{
-                    margin-top:30px;
+                    margin-top:20px;
                     margin-bottom:20px;
                 }
-                .fieldLogin{
-                    width:720px;
+                .pages_box_profile{
+                    margin-left:140px;
                 }
-
+                .author-image{
+                    margin-left:-30px;
+                }
                 .amount{
-                    font-size:24px;
-                    margin-right:20px;
                     float:right;
-                    display:inline;
-                    text-align:right;
-                    line-height:95%;
+                    margin-right:25px;
+                    font-size:20px;
                 }
-
+                .amount_dollar{
+                    display:inline;
+                }
                 .author_name{
                     font-size: 18px;
-                    margin-top: -35px;
-                    margin-left: 79px;
+                    margin-top: -25px;
+                    margin-left: 40px;
                     position: absolute;
+                }
+                .fieldLogin{
+                    width:370px;
                 }
                 input#usernameLogin,
                 input#passwordLogin,
                 textarea{
-                    width: 400px;
+                    width: 350px;
                     font-size: 18px;
                     padding: 8px 0px;
                     text-align:center;  
@@ -1502,340 +1652,15 @@
                 input#passwordLogin:focus, textarea:focus{
                     outline: 0;
                     border:2px solid #989898;
-                    width:410px;
+                    width:360px;
                 }
-                .info_art{
-                    padding-top:10px;
-                    padding-left:20px;
-                }
-                .about_donate{
-                    margin-top:10px;
-                    font-size:16px;
-                    padding-right:10px;
-                    float:right;
-                }
-                .about_donate_text{
-                    
-                }
-                .donate_button{
-                    width:175px;
-                    height:35px;
-                    margin-top:30px;
-                }
-                .why{
-                    margin-top:5px;
-                }
-                .more_of{
-                    margin-left:15px;
-                    margin-top:20px;
-                }
-                .fb-like, .fb_iframe_widget{
-                    margin-top:5px;
-                }
-                .art{
-                    margin-left:20px;
-                }
-                ul.about_team{
-                    margin-left: -25px;
-                    width: 720px;
-                }
-                .about_text{
-                    width:660px;
-                }
-            }
-
-            /* TABLETS PEQUENOS */
-
-            @media(min-width: 530px) and (max-width:749px) {
-                body{
-                    max-width:530px;
-                    overflow-x:hidden;
-                    margin:0 auto;
-                }
-                .top{
-                    width:490px;
-                }
-                .logo_img{
-                    width:190px;
-                    margin-top:7px;
-                    margin-left:5px;
-                }
-                .about_img{
-                    margin-top:20px;
-                    width:450px;
-                }
-                .txtg{
-                    font-size:18px;
-                    margin-top:25px;
-                }
-                input#search{
-                    width:380px;
-                }
-                .view{
-                    margin:0;
-                }
-                .gallery_ol, .gallery{
-                    width:530px;
-                    margin-left:-25px;
-                }
-                .art_li{
-                    width:240px;
-                    height:140px;
-                    display:inline-block;
-                }
-                .art_img_src{
-                    width:240px;
-                    height:140px;
-                }
-                .view .mask, .view .content {
-                    width:0;
-                    height:0;
-                    opacity:0;
-                }
-                .pages_box{
-                    margin-top:30px;
-                    margin-bottom:20px;
-                    position:relative;
-                }
-                #about_li{
-                    width:0;
-                    height:0;
-                    opacity:0;
-                }
-                .fieldLogin{
-                    width:500px;
-                }
-
-                .amount{
-                    font-size:24px;
-                    margin-right:20px;
-                    float:right;
-                    display:inline;
-                    text-align:right;
-                    line-height:95%;
-                }
-
-                .author_name{
-                    font-size: 18px;
-                    margin-top: -35px;
-                    margin-left: 79px;
-                    position: absolute;
-                }
-                input#usernameLogin,
-                input#passwordLogin,
-                textarea{
-                    width: 400px;
-                    font-size: 18px;
-                    padding: 8px 0px;
-                    text-align:center;  
-                    font-family: 'Raleway', sans-serif;
-                    margin-top:20px;
-                    background:#eaeaea;
-                    color:#484848;
-                    border:0;
-                    -webkit-transition: all 0.2s ease;
-                    -moz-transition: all 0.2s ease;
-                    -ms-transition: all 0.2s ease;
-                    -o-transition: all 0.2s ease;
-                    transition: all 0.2s ease;
-                }
-                input#usernameLogin:focus,
-                input#passwordLogin:focus, textarea:focus{
-                    outline: 0;
-                    border:2px solid #989898;
-                    width:410px;
-                }
-                .info_art{
-                    padding-top:10px;
-                }
-                .about_donate{
-                    margin-top:10px;
-                    font-size:16px;
-                    padding-right:10px;
-                }
-                .about_donate_text{
-                    padding-right:30px;
-                    text-align:center;
+                .searchLabel{
                     margin-left:0px;
                 }
-                .donate_button{
-                    width:175px;
-                    height:35px;
-                    margin-left:143px;
-                }
-                .why{
-                    margin-left:153px;
-                }
-                .more_of{
-                    margin-left:15px;
-                    margin-top:20px;
-                }
-                .fb-like, .fb_iframe_widget{
-                    margin-left:84px;
-                    margin-top:-15px;
-                }
-                .art{
-                    margin-left:20px;
-                }
-                .about_text{
-                    width: 450px;
-                }
-                .about_team_member{
-                    display:inline-block;
-                    float: initial !important;
-                }
-                ul.about_team{
-                    width: 480px;
-                    margin-top: 20px;
-                    margin-left: -25px;
-                }
-            }
-
-
-            /* TABLETS +PEQUENOS */
-
-            @media(min-width: 500px) and (max-width:529px) {
-                body{
-                    max-width:500px;
-                    overflow-x:hidden;
-                    margin:0 auto;
-                }
-                .top{
-                    width:470px;
-                }
-                .logo_img{
-                    width:160px;
-                    margin-top:7px;
-                    margin-left:5px;
-                }
-                .about_img{
-                    margin-top:20px;
-                    width:450px;
-                }
-                .txtg{
-                    font-size:18px;
-                    margin-top:25px;
-                }
-                input#search{
-                    width:380px;
-                }
-                .view{
-                    margin:0;
-                }
-                .gallery_ol, .gallery{
-                    width:500px;
-                    margin-left:-25px;
-                }
-                .art_li{
-                    width:220px;
-                    height:120px;
-                    display:inline-block;
-                }
-                .art_img_src{
-                    width:220px;
-                    height:120px;
-                }
-                .view .mask, .view .content {
-                    width:0;
-                    height:0;
-                    opacity:0;
-                }
-                .pages_box{
-                    margin-top:30px;
-                    margin-bottom:20px;
-                    position:relative;
-                }
-                #about_li{
-                    display:none;
-                }
-                .fieldLogin{
-                    width:470px;
-                }
-
-                .amount{
-                    font-size:24px;
-                    margin-right:20px;
-                    float:right;
-                    display:inline;
-                    text-align:right;
-                    line-height:95%;
-                }
-
-                .author_name{
-                    font-size: 18px;
-                    margin-top: -35px;
-                    margin-left: 79px;
-                    position: absolute;
-                }
-                input#usernameLogin,
-                input#passwordLogin,
-                textarea{
-                    width: 400px;
-                    font-size: 18px;
-                    padding: 8px 0px;
-                    text-align:center;  
-                    font-family: 'Raleway', sans-serif;
-                    margin-top:20px;
-                    background:#eaeaea;
-                    color:#484848;
-                    border:0;
-                    -webkit-transition: all 0.2s ease;
-                    -moz-transition: all 0.2s ease;
-                    -ms-transition: all 0.2s ease;
-                    -o-transition: all 0.2s ease;
-                    transition: all 0.2s ease;
-                }
-                input#usernameLogin:focus,
-                input#passwordLogin:focus, textarea:focus{
-                    outline: 0;
-                    border:2px solid #989898;
-                    width:410px;
+                .author-image{
+                    width:55px;
+                    height:55px;
                 }
                 .info_art{
                     padding-top:10px;
-                }
-                .about_donate{
-                    margin-top:10px;
-                    font-size:16px;
-                    padding-right:10px;
-                }
-                .about_donate_text{
-                    padding-right:30px;
-                    text-align:center;
-                    margin-left:0px;
-                }
-                .donate_button{
-                    width:175px;
-                    height:35px;
-                    margin-left:143px;
-                }
-                .why{
-                    margin-left:153px;
-                    margin-top:-20px;
-                }
-                .more_of{
-                    margin-left:15px;
-                    margin-top:20px;
-                }
-                .fb-like, .fb_iframe_widget{
-                    margin-left:84px;
-                    margin-top:-15px;
-                }
-                .art{
-                    margin-left:20px;
-                }
-                .about_text{
-                    width:450px;
-                }
-                .about_team_member{
-                    float:initial !important;
-                    display: inline-block;
-                }
-                ul.about_team{
-                    width: 480px;
-                    margin-top: 20px;
-                    margin-left: -25px;
-                }
-            }
-            
-            
+       

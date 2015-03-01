@@ -43,7 +43,7 @@
 
 		<div class="top">
             <div class="logo">
-                <a href='http://sharingdreams.hol.es/'><img src="assets/img/logo.png" class="logo_img"></a>
+                <a href='http://sharingdreams.co/'><img src="assets/img/logo.png" class="logo_img"></a>
             </div>
             <ul class="menu_list">
                 <li id="about_li"><a href='/about.php' id='menu'>About</a></li>

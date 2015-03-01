@@ -40,23 +40,21 @@
 
         <div class="top tp_marginlg">
             <div class="logo">
-                <a href='/'><img src="./assets/img/logo.png" class="logo_img"></a>
-                <a href="/submit" class="gotoglr">Submit your art! :)</a>
+                <a href='/gallery'><img src="assets/img/logo.png" class="logo_img"></a>
             </div>
             <ul class="menu_list">
-                <li><a href="/submit" id="menu" class="gotoglr">Submit</a></li>
-                <li><a href="/editProfile" id="menu">Settings</a>
-                </li>
+                <li><a href="/submit" id="menu">Submit</a></li>
+                <li><a href="/editProfile" id="menu">Settings</a></li>
                 <li><a href="/deslogar.php" id="menu">Logout</a>
                 </li>
 				
 				<?php if (isset($_SESSION['foto'])) : ?>
 					<li>
-						<a href="/conta.php?user=<?php echo $_SESSION['usuario']; ?>"><img src='assets/fotos_perfil/<?php echo $_SESSION['foto']['nome']; ?>' width="50px" height="50px" class="perfil_img_menu" style="-webkit-border-radius:500; -moz-border-radius: 500px; border-radius: 500px; float:right; margin-top:-20px;"></a>
+						<a href="/conta.php?user=<?php echo $_SESSION['usuario']; ?>"><img id="img-ok" src='assets/fotos_perfil/<?php echo $_SESSION['foto']['nome']; ?>' width="50px" height="50px" class="perfil_img_menu" style="-webkit-border-radius:500; -moz-border-radius: 500px; border-radius: 500px; float:right; margin-top:-20px;"></a>
 					</li>
 				<?php else : ?>
 					<li>
-						<a href="/conta.php?user=<?php echo $_SESSION['usuario']; ?>"><img src="assets/img/sem-foto.png" width="50px" height="50px" class="perfil_img_menu" style="-webkit-border-radius:500; -moz-border-radius: 500px; border-radius: 500px; float:right; margin-top:-20px;"></a>
+						<a href="/conta.php?user=<?php echo $_SESSION['usuario']; ?>"><img id="img-ok" src="assets/img/sem-foto.png" width="50px" height="50px" class="perfil_img_menu" style="-webkit-border-radius:500; -moz-border-radius: 500px; border-radius: 500px; float:right; margin-top:-20px;"></a>
 					</li>
 				<?php endif ?>
 				</li>
@@ -66,3 +64,4 @@
         </div>
 
         <div style="height:70px;"></div>
+        

@@ -1,14 +1,9 @@
-<html>
-    
-    <head>
-        <meta charset='UTF-8'>
-        <title>Sharing Dreams</title>
-        <link rel="stylesheet" href="http://sharingdreams.hol.es/assets/css/index.css">
-        <link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
-    </head>
-    
-    <body>
+<?php
+ob_start();
+                #include "libs/config.php";
+                include "libs/banco.php";
+                include "libs/helper.php";
+?>
 
         <?php
 
@@ -18,7 +13,7 @@
 			ini_set('display_startup_erros',1);
 			error_reporting(E_ALL);
 
-			if(isset($_SESSION['usuario_logado'])) {
+			/*if(isset($_SESSION['usuario_logado'])) {
                 if(isset($_GET['art'])) {
                     include "templates/template_topoLogado.php";
                 } else {
@@ -27,14 +22,14 @@
 			} else{
                 if(isset($_GET['art'])) {
 
-                    include "libs/config.php";
-                    include "libs/banco.php";
-                    include "libs/helper.php";
+                    #include "libs/config.php";
+                    #include "libs/banco.php";
+                    #include "libs/helper.php";
                     include "libs/Classes/Cadastros.php";
 
                     echo "<div class='top'>
                         <div class='logo'>
-                            <a href='/'><img src='http://sharingdreams.hol.es/assets/img/logo.png' class='logo_img'></a>
+                            <a href='/gallery'><img src='http://sharingdreams.hol.es/assets/img/logo.png' class='logo_img'></a>
                         </div>
                         <ul class='menu_list'>
                             <li><a href='/about.php' id='menu'>About</a></li>
@@ -45,22 +40,17 @@
                 } else {
                     include "templates/menu_visitante.php";
                 }
-			}
+			}*/
 
 		?>
 
         <?php if (!isset($_GET['art'])) : ?>
-            <div style="height:20px;"></div>
-            <form method="GET" action="/">
-                <center>
-                    <input type="text" name="q" id="search" placeholder="Find someone to help">
-                    <input type="button" class="search-button-after">
-                </center>
-            </form>
+            
         <?php endif; ?>
 
         <?php 
             if (isset($_GET['q'])) {
+
 
                 $busca = protege_busca($_GET['q']);
 
@@ -72,7 +62,7 @@
                 $total_artes = mysqli_num_rows($query);
 
 
-                $registros = 10;
+                $registros = 9;
                 $numPaginas = ceil($total_artes/$registros);
                 $inicio = ($registros*$page)-$registros;
 
@@ -91,9 +81,13 @@
 
                 include "templates/template_search.php";  
             } else if (isset($_GET['art'])) {
-                $id_arte = protege_id($_GET['art']);
+                $iarte = explode("/", $_GET["art"]);
+                $c = count($iarte);
+                $c = $c - 1;
+                $iarte = $iarte[$c];
+                $id_arte = protege_id($iarte);
 
-                if(! verifica_arte($mysqli, $id_arte)){header('Location: http://sharingdreams.url.ph/');}
+                if(! verifica_arte($mysqli, $id_arte)){header('Location: http://sharingdreams.co/');}
 
                 $arte = buscar_arte($mysqli, $id_arte);
 
@@ -102,7 +96,17 @@
                 $nome_artista = $artista['nome'];
                 $foto_artista = buscar_foto($mysqli, $arte['cadastro_id']);
 
+                if(isset($_SESSION['id'])){
+                    $id = $_SESSION['id'];
+                }else{
+                    $id = 0;
+                }
 
+                $dono = false;
+
+                if(verificar_darte($mysqli, $id, $iarte) >= 1){
+                    $dono = true;
+                }
                 $artes_artista = buscar_artes_artista_limitadas($mysqli, $arte['cadastro_id']);
 
                 $_SESSION['arte_id'] = $id_arte;
@@ -113,9 +117,9 @@
                 if(isset($_SESSION['usuario_logado'])) {
                     include "libs/galeria.php";
                 } else {
-                    include "libs/config.php";
-                    include "libs/banco.php";
-                    include "libs/helper.php";
+                    #include "libs/config.php";
+                    #include "libs/banco.php";
+                    #include "libs/helper.php";
                     include "libs/galeria.php";
                 }
             }   

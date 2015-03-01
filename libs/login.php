@@ -29,7 +29,7 @@ if(tem_post()){
 	}
 
 	if (isset($_POST['senha']) && strlen($_POST['senha']) > 0) {
-		$cadastro['senha'] = MD5($_POST['senha']);
+		$cadastro['senha'] = SHA1(MD5(MD5($_POST['senha'])));
 	} else {
 		$tem_erros = true;
 		$erros_validacao['login_senha'] = 'You forgot to type your password!';
@@ -38,23 +38,29 @@ if(tem_post()){
 	if (! $tem_erros) {
 		$verificar = verificar_login($mysqli, $mysqli->escape_string(htmlspecialchars($cadastro['usuario'])), $mysqli->escape_string(htmlspecialchars($cadastro['senha'])));
 		if ($verificar == 1) {
-			
-			$cadastros->buscar_cadastro($cadastro['usuario'], $cadastro['senha']);
-			$login = $cadastros->cadastro;
+			$i = verifica_idade($mysqli, $_POST['usuario'], $cadastro['senha']);
+			if(verificar_idade_c($i["data_nascimento"]) == true){
+				
+				$cadastros->buscar_cadastro($cadastro['usuario'], $cadastro['senha']);
+				$login = $cadastros->cadastro;
 
-			$_SESSION['usuario_logado']  = true;
-			$_SESSION['id']              = $login['id'];
-			$_SESSION['foto']            = buscar_foto($mysqli, $_SESSION['id']);
-			$_SESSION['usuario']         = $login['usuario'];
-			$_SESSION['data_nascimento'] = traduz_data_nascimento_para_exibir($login['data_nascimento']);
-			$_SESSION['sexo']            = traduz_sexo($login['sexo']);
-			$_SESSION['nome']            = $login['nome'];
-			$_SESSION['email']           = $login['email'];
-			$_SESSION['endereco']        = $login['endereco'];
-			$_SESSION['sobre']           = $login['sobre'];
-			$_SESSION['senha']           = $login['senha'];
+				$_SESSION['usuario_logado']  = true;
+				$_SESSION['id']              = $login['id'];
+				$_SESSION['foto']            = buscar_foto($mysqli, $_SESSION['id']);
+				$_SESSION['usuario']         = $login['usuario'];
+				$_SESSION['data_nascimento'] = $login['data_nascimento'];
+				$_SESSION['sexo']            = traduz_sexo($login['sexo']);
+				$_SESSION['nome']            = $login['nome'];
+				$_SESSION['email']           = $login['email'];
+				$_SESSION['endereco']        = $login['endereco'];
+				$_SESSION['sobre']           = $login['sobre'];
+				$_SESSION['senha']           = $login['senha'];
 
-			header('Location: http://sharingdreams.hol.es/submit.php');
+				header('Location: http://sharingdreams.co/submit');
+			}else{
+				$erro_login                  = true;
+				$erros_validacao['invalido'] = 'This account is disabled because the user now at days is 18 years old or above!';
+			}
 		} else {
 			$erro_login                  = true;
 			$erros_validacao['invalido'] = 'Invalid username or password';

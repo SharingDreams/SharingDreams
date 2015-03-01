@@ -10,5 +10,5 @@ unset($_SESSION['usuario_logado']);
 session_destroy(); 
 
 //vai pra tela de login :)
-header("Location: http://sharingdreams.hol.es/"); 
+header("Location: http://sharingdreams.co/"); 
 ?>

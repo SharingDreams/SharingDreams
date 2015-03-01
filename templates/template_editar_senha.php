@@ -19,6 +19,16 @@
 		<script src="assets/js/others/bootstrap.js"></script>
 		<script src="assets/js/others/datepicker.js"></script>  
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-60227935-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
 	</head>
 	<body>
 
@@ -45,12 +55,11 @@
 
 		<div class="top tp_marginlg">
             <div class="logo">
-                <a href='http://sharingdreams.hol.es/'><img src="assets/img/logo.png" class="logo_img"></a>
-                <a href="/submit" class="gotoglr">Submit your art! :)</a>
+                <a href='/gallery'><img src="assets/img/logo.png" class="logo_img"></a>
             </div>
             <ul class="menu_list">
-                <li><a href="/submit" id="menu" class="gotoglr">Submit</a></li>
-		        <li><a href="/gallery" id="menu">Gallery</a></li>
+                <li><a href="/gallery" id="menu">Gallery</a></li>
+                <li><a href="/submit" id="menu">Submit</a></li>
                 <li><a href="/editProfile" id="menu">Settings</a></li>
                 <li><a href="deslogar.php" id="menu">Logout</a>
                 </li>
@@ -100,7 +109,7 @@
 
 						<br>
 
-						<p class='botoes cancelar'><a href="http://sharingdreams.hol.es/">Cancel</a></p>
+						<p class='botoes cancelar'><a href="http://sharingdreams.co/gallery">Cancel</a></p>
 						<button type='submit' class='botoes editar' name='editar'>Edit!</button>
 						
 				</form>

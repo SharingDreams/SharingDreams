@@ -29,7 +29,7 @@ error_reporting(E_ALL);
 
 <div class="top">
     <div class="logo" id='logo-margin'>
-        <a href='/'><img src="assets/img/logo.png" class="logo_img"></a>
+        <a href='/gallery'><img src="/assets/img/logo.png" class="logo_img"></a>
     </div>
     <ul class="menu_list" id='menu-margin'>
         <li id="about_li"><a href="/about.php" id="menu">About</a></li>
@@ -38,16 +38,3 @@ error_reporting(E_ALL);
     </ul>
 </div>
 <div style="height:60px;"></div>
-<div class="middle">
-    <div class="hr"></div>
-        <div class="txtg_index">Help kids around the world.
-            <br>
-			<center>
-				<a href="/about" id="aboutbtn" style="font-size:18px;">
-					<div class="donate_button">
-						About
-					</div>
-				</a>
-			</center>
-        </div>
-</div>
