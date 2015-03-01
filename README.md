@@ -12,9 +12,9 @@ Sharing Dreams is a website that has 3 main goals: To develop teenagers' creativ
 Read more: <a href="http://sharingdreams.co">http://sharingdreams.co</a>
  
 # <a name="team-members"></a>Team Members
-* "Guilherme Vieira Rizzo" - Founder & Webdesigner<guivr2011@gmail.com>
-* "Leonardo Felipe Nerone" - Founder & Programmer<leonardofelipenerone@gmail.com>
-* "Thor Garcia" - Founder & Programmer<thor.fc21@gmail.com>
+* "Guilherme Vieira Rizzo" - Founder & Webdesigner <guivr2011@gmail.com>
+* "Leonardo Felipe Nerone" - Founder & Programmer <leonardofelipenerone@gmail.com>
+* "Thor Garcia" - Founder & Programmer <thor.fc21@gmail.com>
 * "Nic Munhoz" - Help with the idea
 * "Felipe Fajardo" - Baked our host and takes care of marketing <felipetio123@gmail.com>
 
