@@ -172,7 +172,7 @@ function tratar_arte($arte)
     	return false;
     }
 
-    $porc = (($altura/$largura)-1)*100;
+    $porc = (($dimensoes[1]/$dimensoes[0])-1)*100;
 
     $rand = md5(rand().microtime().rand().microtime());
     $ext = end(explode(".", $arte['name']));
