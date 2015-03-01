@@ -158,12 +158,6 @@
                             <input type="hidden" name="itemdesc" value="Make a donation to <?php echo $arte['nome_arte']; ?>" />
                             <input type="submit" class="donate_button paypal-button" value="Donate with PayPal">
                         </form>
-                        <form method="POST" action="/processBRL.php" style="margin:0;">
-                            <input type="hidden" name="itemname" value="<?php echo $arte['nome_arte']; ?> - by <?php echo $nome_artista; ?>" /> 
-                            <input type="hidden" name="itemnumber" value="<?php echo $arte['id']; ?>" />
-                            <input type="hidden" name="itemdesc" value="Make a donation to <?php echo $arte['nome_arte']; ?>" />
-                            <input type="submit" class="donate_button paypal-button" value="Doar com Paypal (Reais)">
-                        </form>
                     </div>
                     <br>
                     <div class="fb-like" data-href="http://sharingdreams.co/art/<?php echo $farte_nome_id; ?>/<?php echo $arte_id; ?>"0 data-layout="button_count" data-action="like" data-show-faces="false" style="display:inline-block;"></div>
