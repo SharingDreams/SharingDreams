@@ -182,7 +182,7 @@ function tratar_arte($arte)
     move_uploaded_file($arte['tmp_name'], "./artes/".$arquivo);
 
     $resizeImg = new resize('./artes/'.$arquivo);
-    if($porc >= 20){$resizeImg -> resizeImage(140, 200, 'exact');}else{
+    if($porc >= 20 && $porc < 100){$resizeImg -> resizeImage(140, 200, 'exact');}else{
     $resizeImg -> resizeImage(300, 200, 'exact');}
     $resizeImg -> saveImage('./artes/thumbnails/'.$arquivo, 100);
 
