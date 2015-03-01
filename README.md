@@ -15,6 +15,7 @@ Read more: <a href="http://sharingdreams.co">http://sharingdreams.co</a>
 * "Guilherme Vieira Rizzo" - Founder & Webdesigner <guivr2011@gmail.com>
 * "Leonardo Felipe Nerone" - Founder & Programmer <leonardofelipenerone@gmail.com>
 * "Thor Garcia" - Founder & Programmer <thor.fc21@gmail.com>
+* "Joao Vitor Sousa Escudero" - Founder & Programmer <joaovescudero@gmail.com>
 * "Nic Munhoz" - Help with the idea
 * "Felipe Fajardo" - Baked our host and takes care of marketing <felipetio123@gmail.com>
 
