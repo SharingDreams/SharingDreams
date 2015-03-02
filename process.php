@@ -1,6 +1,10 @@
 <?php
 include_once("paypal/config.php");
 include_once("paypal/paypal.class.php");
+include_once("paypal/quotation.php");
+
+$dolar = Quotation::dolar();
+$dolar = number_format($dolar['quotation'], 2);
 
 $paypalmode = ($PayPalMode=='sandbox') ? '.sandbox' : '';
 
@@ -13,7 +17,7 @@ if($_POST) //Post Data received from product list page.
 	//$ItemPrice = $mysqli->query("SELECT item_price FROM products WHERE id = Product_Number");
 
 	$ItemName 		= $_POST["itemname"]; //Item Name
-	$ItemPrice 		= "1"; //Item Price
+	$ItemPrice 		= $dolar; //Item Price
 	$ItemNumber 	= $_POST["itemnumber"]; //Item Number
 	$ItemDesc 		= $_POST["itemdesc"]; //Item Number
 	$ItemQty 		= "1"; // Item Quantity
@@ -175,7 +179,7 @@ if(isset($_GET["token"]) && isset($_GET["PayerID"]))
 
 				if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"])) 
 				{
-					$conn = new mysqli("SERVERBD", "USERDB", "PASSWORDDB", "DB");
+					$conn = new mysqli("localhost", "sharinh5_sharing", "Riletho", "sharinh5_sharing");
 
 					$erro = "";
 
