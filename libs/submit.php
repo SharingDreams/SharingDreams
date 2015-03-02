@@ -89,7 +89,7 @@ if(isset($_SESSION['usuario_logado'])){
 	    }
     }else{
         $tem_erros = true;
-        $erros_validacao['arte'] = 'Oops, your type an invalid captcha!';
+        $erros_validacao['arte'] = 'Oops, there\'s something wrong with the captcha. Try again';
     }
 
 	}

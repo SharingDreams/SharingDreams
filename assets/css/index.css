@@ -1003,11 +1003,10 @@
                 }
                 .middle#about{
                     height:360px;
-                    width:calc(100% - 30px);
+                    width:100%;
                 }
                 .txtg_index{
                     margin-top:50px;
-                    width:280px;
                     font-size:36px;
                 }
             }
@@ -1291,11 +1290,10 @@
                 }
                 .middle#about{
                     height:360px;
-                    width:calc(100% - 30px);
+                    width:100%;
                 }
                 .txtg_index{
                     margin-top:50px;
-                    width:290px;
                     font-size:36px;
                 }
             }
@@ -1533,11 +1531,10 @@
                 }
                 .middle#about{
                     height:360px;
-                    width:calc(100% - 30px);
+                    width:100%;
                 }
                 .txtg_index{
                     margin-top:50px;
-                    width:290px;
                     font-size:36px;
                 }
                 .art_name{

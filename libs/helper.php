@@ -172,7 +172,11 @@ function tratar_arte($arte)
     	return false;
     }
 
+<<<<<<< Updated upstream
     $porc = (($dimensoes[1]/$dimensoes[0])-1)*100;
+=======
+    $porc = ($largura+($largura*0.2));
+>>>>>>> Stashed changes
 
     $rand = md5(rand().microtime().rand().microtime());
     $ext = end(explode(".", $arte['name']));
@@ -182,8 +186,17 @@ function tratar_arte($arte)
     move_uploaded_file($arte['tmp_name'], "./artes/".$arquivo);
 
     $resizeImg = new resize('./artes/'.$arquivo);
+<<<<<<< Updated upstream
     if($porc >= 20 && $porc < 100){$resizeImg -> resizeImage(140, 200, 'exact');}else{
     $resizeImg -> resizeImage(300, 200, 'exact');}
+=======
+    if($altura >= $porc){
+    	$resizeImg -> resizeImage(140, 200, 'exact');
+    }
+    else{
+    	$resizeImg -> resizeImage(300, 200, 'exact');
+    }
+>>>>>>> Stashed changes
     $resizeImg -> saveImage('./artes/thumbnails/'.$arquivo, 100);
 
 
