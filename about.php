@@ -142,7 +142,7 @@
         Felipe Fajardo - Baked our host and take cares of marketing.<br>
         Freepik - Logo Icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a><br>
         <br>
-        <a href="http://twitter.com/wesharingdreams" target="_blank">Our twitter</a><br>
+        <a href="http://facebook.com/sharingdreamsorg">Our facebook page</a> / <a href="http://twitter.com/wesharingdreams" target="_blank">Our twitter</a><br>
         <a href="http://medium.com/@wesharingdreams" target="_blank">Paypal reports (Blog/medium)</a><br>
         <a href="http://github.com/sharingdreams" target="_blank">Github</a><br>
         <a href="http://sharingdreams.co/terms" target="_blank">Terms</a><br>
