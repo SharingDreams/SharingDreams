@@ -40,7 +40,9 @@
         <center>
 			<div class="que_bom">How nice your interest to join us!</div>
 
-			<small class="forwhoRegister">Help kids around the world and be recognized! Sharing Dreams artists must have 13 years old or above and less than 18 years old.</small>
+			<small class="forwhoRegister">
+				Help kids around the world and together we can celebrate their talents. Sharing Dreams members must be at least 13 years old and less than 18 years old.
+			</small>
 
 			<div style="height:30px;"></div>
 
